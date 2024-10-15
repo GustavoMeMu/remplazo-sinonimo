@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const selectPalabra = document.getElementById('selectPalabra');
     const selectSinonimo = document.getElementById('selectSinonimo');
 
-    // Llenar el select de palabras del diccionario
+
     for (let palabra in diccionario) {
         const option = document.createElement('option');
         option.value = palabra;
@@ -28,12 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
         selectPalabra.appendChild(option);
     }
 
-    // Cambiar los sinónimos cuando se seleccione una palabra
     selectPalabra.addEventListener('change', function() {
         const palabraSeleccionada = selectPalabra.value;
         const sinonimos = diccionario[palabraSeleccionada];
 
-        // Limpiar el select de sinónimos
+
         selectSinonimo.innerHTML = '<option value="" disabled selected>Seleccione un sinónimo</option>';
 
         sinonimos.forEach(sinonimo => {
@@ -44,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Reemplazar la palabra en el texto
+
     document.getElementById('reemplazarTexto').addEventListener('click', function() {
         const texto = document.getElementById('texto').value.trim();
         const palabraSeleccionada = selectPalabra.value;
@@ -68,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('texto').value = nuevoTexto;
     });
 
-    // Limpiar los campos
     document.getElementById('limpiarCampos').addEventListener('click', function() {
         document.getElementById('texto').value = '';
         selectPalabra.value = '';
